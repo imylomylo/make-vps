@@ -1,5 +1,9 @@
 NAME	:=	vps
 
+# TODO
+# target for getting dhcp leases
+# virsh net-dhcp-leases default
+
 vps:
 	echo ${NAME}
 	echo ${NEWVPS}
