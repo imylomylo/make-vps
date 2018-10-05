@@ -1,8 +1,17 @@
 NAME	:=	vps
 
 # TODO
+# default NEWVPS and HDSIZE and rename by passing in with make NEWVPS=xxxx
+# when default vars are created can then modify same todo-make-targets appropriately
+# 
 # target for getting dhcp leases
 # virsh net-dhcp-leases default
+#
+# target for cloning
+# virt-clone --original bunty --auto-clone --name staked1
+#
+# target for virt-sysprep to clone  host from a "default" VM
+# virt-sysprep -d staked1 --hostname staked1 --firstboot-command 'dpkg-reconfigure openssh-server'
 
 vps:
 	echo ${NAME}
