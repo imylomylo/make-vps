@@ -1,0 +1,3 @@
+NAME	:= 	clone
+clone:
+	virt-clone --original buntylvm --auto-clone --name staked1
