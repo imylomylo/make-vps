@@ -23,5 +23,5 @@ ifndef HDSIZE
 $(error HDSIZE is not set)
 endif
 	sleep 5
-	virt-install --name ${NEWVPS} --ram 4096 --disk path=/var/lib/libvirt/images/${NEWVPS}.img,bus=virtio,size=${HDSIZE} --cdrom /tmp/ubuntu-18.04.1.0-live-server-amd64.iso --network network=default,model=virtio --graphics vnc,listen=127.0.0.1,password=protectme --vcpus 4 --noautoconsole -v
+	virt-install --name ${NEWVPS} --ram 4096 --disk path=/var/lib/libvirt/images/${NEWVPS}.img,bus=virtio,size=${HDSIZE} --cdrom /tmp/ubuntu-18.04.2-live-server-amd64.iso --network network=default,model=virtio --graphics vnc,listen=127.0.0.1,password=protectme --vcpus 4 --noautoconsole -v
 
