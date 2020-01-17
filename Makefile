@@ -13,3 +13,9 @@ clone18:
 
 ubuntu16:
 	make -f Makefile_new_ubuntu16
+
+18desktop:
+	make -f Makefile_new_18desktop
+
+16desktop:
+	make -f Makefile_new_16desktop
