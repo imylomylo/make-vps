@@ -2,14 +2,14 @@
 HOSTNAME=$1
 IP=$2
 GW=$3
-cp /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.bak
-cat > /etc/netplan/50-cloud-init.yaml << EOF;
+sudo cp /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.bak
+sudo cat > /etc/netplan/50-cloud-init.yaml << EOF;
 network:
     ethernets:
         ens3:
             addresses: []
             dhcp4: true
-        ens7:
+        enp0s7:
             addresses:
               - $IP/32
             routes:
@@ -18,6 +18,6 @@ network:
                 on-link: true
     version: 2
 EOF
-sed -i 's/^preserve_hostname\(.\)*$/preserve_hostname: true/' /etc/cloud/cloud.cfg
-hostnamectl set-hostname $HOSTNAME
-hostnamectl
+sudo sed -i 's/^preserve_hostname\(.\)*$/preserve_hostname: true/' /etc/cloud/cloud.cfg
+sudo hostnamectl set-hostname $HOSTNAME
+sudo hostnamectl
