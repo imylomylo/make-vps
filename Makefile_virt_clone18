@@ -5,5 +5,5 @@ $(error VPSNAME is not set)
 endif
 
 clone18:
-	virt-clone --original ubuntu18 --auto-clone --name ${VPSNAME}
+	virt-clone --original explorer --auto-clone --name ${VPSNAME}
 	virt-sysprep -d ${VPSNAME} --hostname ${VPSNAME} --firstboot-command 'dpkg-reconfigure openssh-server'

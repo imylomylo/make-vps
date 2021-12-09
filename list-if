@@ -1,0 +1,2 @@
+#!/bin/bash
+for vm in $(sudo virsh list  --state-running --name); do echo $vm; sudo virsh domifaddr $vm; done
