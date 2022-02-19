@@ -1,17 +1,11 @@
 #!/bin/bash
 
-apt-get update
-apt-get install -y git
-apt-get install -y qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils virtinst sudo screen tmux wget git libguestfs-tools
-adduser `id -un` kvm
-adduser `id -un` libvirtd
-useradd -m mylo
-echo "bestmylo ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/bestmylo
-lsmod | grep bridge
-brctl show
+#lsmod | grep bridge
+#brctl show
 #reboot
-HOSTIP=`ifconfig eth0 | grep "inet addr" | cut -d ':' -f 2 | cut -d ' ' -f 1`
-HOSTNETMASK=`ifconfig eth0 | grep "inet addr" | cut -d ':' -f 4 | cut -d ' ' -f 1`
+HOSTIP=`ip a | grep "inet " | grep -v "127.0.0" | awk  '{print $2}' | sed 's/\/.*//'`
+#HOSTNETMASK=`ifconfig eth0 | grep "inet addr" | cut -d ':' -f 4 | cut -d ' ' -f 1`
+HOSTNETMASK="255.255.255.192"
 NICHEX=$(hexdump -vn3 -e '/3 "52:54:00"' -e '/1 ":%02x"' -e '"\n"' /dev/urandom)
 GUESTNET="172.16.240.1/29"
 GUEST1="172.16.240.2"
