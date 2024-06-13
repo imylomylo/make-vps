@@ -1,0 +1,9 @@
+NAME	:= 	clone22
+
+ifndef VPSNAME
+$(error VPSNAME is not set)
+endif
+
+clone18:
+	virt-clone --original ${ORIGINAL} --auto-clone --name ${VPSNAME}
+	virt-sysprep -d ${VPSNAME} --hostname ${VPSNAME} --firstboot-command 'dpkg-reconfigure openssh-server'
